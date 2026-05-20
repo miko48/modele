@@ -228,7 +228,7 @@
       <p class="about-bio">Od ponad trzydziestu lat pasjonuję się historią wojskowości. Każda miniatura to dla mnie nie tylko model — to podróż w czasie, próba odtworzenia chwili, która odcisnęła piętno na losach świata.</p>
       <p class="about-bio">Specjalizuję się w miniaturach z okresu napoleońskiego, II wojny światowej oraz średniowiecza. Każdy element pomalowany jest ręcznie, z dbałością o historyczną dokładność.</p>
       <div class="about-stats">
-        <div><div class="stat-num">30 +</div><div class="stat-label">Lat doświadczenia</div></div>
+        <div><div class="stat-num" id="yearsExp"></div><div class="stat-label">Lat doświadczenia</div></div>
         <div><div class="stat-num">12.000 +</div><div class="stat-label">Ukończonych figurek i modeli</div></div>
       </div>
     </div>
@@ -511,6 +511,9 @@ const observer = new IntersectionObserver(entries=>{
   entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');observer.unobserve(en.target);}});
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const startYear = 1993;
+document.getElementById('yearsExp').textContent = (new Date().getFullYear() - startYear) + ' +';
 
 renderProjects();
 </script>
