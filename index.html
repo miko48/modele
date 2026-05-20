@@ -1,219 +1,518 @@
 <!DOCTYPE html>
-<html lang="pl" class="scroll-smooth">
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VVYSOKO | Profesjonalne nagrania z drona</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Modelarskie — Miniatury Historyczne</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/miko48/modele/refs/heads/main/modelemarka-logo.png">
 
-    <meta property="og:title" content="VVYSOKO | Profesjonalne nagrania z drona">
-    <meta property="og:description" content="Wysokiej jakości ujęcia z powietrza dla firm, nieruchomości i na wydarzenia. Filmowy efekt, szybka realizacja.">
-    
-    <meta property="og:image" content="https://raw.githubusercontent.com/miko48/drony/refs/heads/main/VVYSOKO%20logo%20only%20white.png">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/miko48/drony/refs/heads/main/VVYSOKO%20logo%20only%20white.png">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Modele Marka — Miniatury Historyczne">
+<meta property="og:description" content="Ręcznie składane i malowane modele oraz dioramy, tworzone z dbałością o każdy historyczny szczegół — od antyku po XXI wiek.">
+<meta property="og:image" content="https://raw.githubusercontent.com/miko48/modele/refs/heads/main/modelemarka-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/miko48/modele/refs/heads/main/modelemarka-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg: #121212;
+    --bg2: #1a1a1a;
+    --bg3: #242424;
+    --gold: #d4af37;
+    --gold-light: #f3e5ab;
+    --gold-dim: #998100;
+    --cream: #f4f4f5;
+    --cream-dim: #d4d4d8;
+    --text: #c7c7d1; 
+    --text-dim: #9a9aa6;
+    --border: #333333;
+    --border-gold: rgba(212, 175, 55, 0.15);
+    --font-head: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Raleway', sans-serif;
+    --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+  html{scroll-behavior:smooth;font-size:16px}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-weight:300;line-height:1.7;overflow-x:hidden}
+  ::selection{background:var(--gold-dim);color:#fff}
 
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/miko48/drony/refs/heads/main/VVYSOKO%20logo%20only%20white.png">
+  ::-webkit-scrollbar{width:6px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:3px}
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        .hero-gradient {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url("https://i.ibb.co/tMGBmnhv/788cb879-bb6c-413a-9b12-32fe5604d784.jpg"); 
-            background-size: cover;
-            background-position: center;
-        }
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-    </style>
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;background:rgba(18, 18, 18, 0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;height:68px;transition:var(--transition)}
+  
+  /* Modyfikacja dla logo */
+  .nav-logo{font-family:var(--font-head);font-size:1.8rem;font-weight:400;color:var(--gold);letter-spacing:0.04em;text-decoration:none; display:flex; align-items:center; gap:12px;}
+  .nav-logo img{height:50px; width:auto;}
+  
+  .nav-links{display:flex;gap:2.2rem;list-style:none}
+  /* Powiększona czcionka na 1rem */
+  .nav-links a{text-decoration:none;color:var(--cream-dim);font-size:1rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:color var(--transition);position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width var(--transition)}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-links a:hover::after{width:100%}
+  .nav-toggle{display:none;background:none;border:none;color:var(--gold);font-size:1.4rem;cursor:pointer;padding:4px}
+
+  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:0 5%;position:relative;overflow:hidden}
+  .hero-image-bg {position:absolute;inset:0;background-image:url('https://brzozowiana.pl/media/k2/items/cache/8ee32f4a7dc339e385d15d54d4e3744e_L.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;z-index:0}
+  .hero-overlay {position:absolute;inset:0;background:linear-gradient(to bottom, rgba(18,18,18,0.65) 0%, rgba(18,18,18,1) 100%);z-index:1}
+  .hero-content{max-width:760px;text-align:center;position:relative;z-index:2;animation:fadeUp 1.2s cubic-bezier(0.4,0,0.2,1) both}
+  .hero-eyebrow{font-size:0.72rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+  .hero-eyebrow::before,.hero-eyebrow::after{content:'';height:1px;width:48px;background:var(--gold-dim)}
+  h1{font-family:var(--font-head);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.08;color:var(--cream);letter-spacing:-0.01em;margin-bottom:1.4rem}
+  h1 em{font-style:italic;color:var(--gold-light)}
+  .hero-sub{font-size:1rem;font-weight:300;color:var(--cream-dim);max-width:480px;margin:0 auto 2.8rem;line-height:1.8}
+  
+  .hero-cta{display:inline-flex;align-items:center;gap:0.7rem;padding:0.9rem 2.4rem;background:var(--gold);color:var(--bg);text-decoration:none;font-size:0.9rem;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;transition:all var(--transition);position:relative;box-shadow:0 4px 15px rgba(212, 175, 55, 0.3)}
+  .hero-cta:hover{background:var(--gold-light);color:var(--bg);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212, 175, 55, 0.5)}
+  .hero-cta span{position:relative;z-index:1}
+  .hero-cta-arrow{position:relative;z-index:1;transition:transform var(--transition)}
+  .hero-cta:hover .hero-cta-arrow{transform:translateX(5px)}
+
+  section{padding:6rem 5%; position:relative; z-index:2}
+  .section-header{margin-bottom:4rem}
+  .section-tag{font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+  h2{font-family:var(--font-head);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;color:var(--cream);line-height:1.15}
+  h2 em{font-style:italic;color:var(--gold)}
+  .section-divider{width:48px;height:1px;background:var(--gold-dim);margin-top:1.2rem}
+
+  #projekty{background:var(--bg2)}
+  .projects-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem}
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2px}
+  .project-card{background:var(--bg3);border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:border-color var(--transition)}
+  .project-card:hover{border-color:var(--border-gold)}
+  .project-thumb{aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--bg2)}
+  .project-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1)}
+  .project-card:hover .project-thumb img{transform:scale(1.05)}
+  .project-info{padding:1.4rem}
+  .project-category{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+  .project-title{font-family:var(--font-head);font-size:1.35rem;font-weight:400;color:var(--cream);margin-bottom:0.4rem;line-height:1.2}
+  .project-desc{font-size:0.82rem;color:var(--text-dim);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+  #about{background:var(--bg)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+  .portrait-frame{aspect-ratio:3/4;width:100%;max-width:440px;margin:0 auto;background:var(--bg3);border:1px solid var(--border-gold);position:relative;overflow:hidden;}
+  .portrait-frame img{width:100%;height:100%;object-fit:cover;}
+  .about-text h3{font-family:var(--font-head);font-size:1.8rem;font-weight:400;color:var(--cream);margin-bottom:0.3rem}
+  .about-subtitle{font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem}
+  .about-bio{font-size:0.95rem;line-height:1.9;color:var(--text);margin-bottom:1.2rem}
+  .about-stats{display:flex;gap:2.5rem;margin-top:2.2rem;padding-top:2.2rem;border-top:1px solid var(--border)}
+  .stat-num{font-family:var(--font-head);font-size:2.4rem;font-weight:300;color:var(--gold);line-height:1}
+  .stat-label{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-top:0.3rem}
+
+  #kontakt{background:var(--bg2)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+  .contact-info{padding-top:1rem}
+  .contact-item{display:flex;gap:1.2rem;margin-bottom:2rem;align-items:flex-start}
+  .contact-icon{width:40px;height:40px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
+  .contact-icon svg{width:18px;height:18px}
+  .contact-item-label{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.25rem}
+  .contact-item-value{font-size:0.9rem;color:var(--cream);font-weight:300}
+  .contact-item-value a{color:var(--gold);text-decoration:none;transition:color var(--transition)}
+  .contact-item-value a:hover{color:var(--gold-light)}
+  .contact-form{background:var(--bg3);border:1px solid var(--border);padding:2.5rem}
+  .contact-form-title{font-family:var(--font-head);font-size:1.4rem;color:var(--cream);margin-bottom:1.8rem}
+  .form-group{margin-bottom:1.3rem}
+  .form-group label{display:block;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:0.5rem}
+  .form-group input,.form-group textarea{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--cream);font-family:var(--font-body);font-size:0.88rem;font-weight:300;padding:0.75rem 1rem;outline:none;transition:border-color var(--transition)}
+  .form-group input:focus,.form-group textarea:focus{border-color:var(--gold-dim)}
+  .form-group textarea{resize:vertical;min-height:90px}
+  .btn-primary{background:var(--gold);border:none;color:var(--bg);font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.85rem 2rem;cursor:pointer;transition:background var(--transition);width:100%}
+  .btn-primary:hover{background:var(--gold-light)}
+  .btn-primary:disabled{opacity: 0.7; cursor: not-allowed;}
+  .msg-success{display:none;background:rgba(212,175,55,0.1);border:1px solid var(--border-gold);color:var(--gold-light);padding:1rem;font-size:0.83rem;margin-top:1rem;text-align:center}
+  .msg-success.show{display:block}
+
+  footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+  .footer-logo{font-family:var(--font-head);font-size:1.1rem;color:var(--gold);letter-spacing:0.04em}
+  .footer-copy{font-size:0.72rem;color:var(--text-dim);letter-spacing:0.05em}
+  .instagram-link{display:inline-flex;align-items:center;gap:0.7rem;text-decoration:none;color:var(--cream-dim);font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border);padding:0.6rem 1.2rem;transition:var(--transition)}
+  .instagram-link:hover{border-color:var(--gold-dim);color:var(--gold)}
+  .instagram-link svg{width:16px;height:16px}
+
+  .lightbox{position:fixed;inset:0;z-index:200;background:rgba(18,18,18,0.97);display:none;flex-direction:column;overflow-y:auto}
+  .lightbox.open{display:flex}
+  .lb-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5%;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(18,18,18,0.98);z-index:10;}
+  .lb-title-group h3{font-family:var(--font-head);font-size:1.5rem;font-weight:400;color:var(--cream)}
+  .lb-title-group span{font-size:0.72rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase}
+  .lb-btn-close{background:none;border:none;color:var(--text-dim);font-size:1.5rem;cursor:pointer;transition:color var(--transition)}
+  .lb-btn-close:hover{color:var(--gold)}
+  .lb-photos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:3px;padding:3px}
+  .lb-photo-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--bg2);cursor:pointer}
+  .lb-photo-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+  .lb-photo-wrap:hover img{transform:scale(1.04)}
+  .lb-desc{padding:2rem 5%;border-top:1px solid var(--border)}
+  .lb-desc p{font-size:0.9rem;color:var(--text);line-height:1.8;max-width:800px}
+
+  .zoom-overlay{position:fixed;inset:0;z-index:300;background:rgba(10,10,10,0.98);display:none;align-items:center;justify-content:center}
+  .zoom-overlay.open{display:flex}
+  .zoom-img{max-width:92vw;max-height:90vh;object-fit:contain;animation:zoomIn 0.2s ease both}
+  .zoom-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--text-dim);font-size:1.8rem;cursor:pointer;transition:color var(--transition)}
+  .zoom-close:hover{color:var(--gold)}
+  .zoom-nav{position:absolute;top:50%;transform:translateY(-50%);background:var(--bg3);border:1px solid var(--border);color:var(--gold);width:44px;height:44px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:var(--transition)}
+  .zoom-nav:hover{background:var(--border);border-color:var(--gold)}
+  .zoom-nav.prev{left:1.5rem}
+  .zoom-nav.next{right:1.5rem}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes zoomIn{from{opacity:0;transform:scale(0.94)}to{opacity:1;transform:scale(1)}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:900px){
+    .about-grid, .contact-grid{grid-template-columns:1fr;gap:3rem}
+    .about-grid > div:first-child { order: 2; }
+    .portrait-frame{width:100%; max-width:320px; margin:0 auto}
+    .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg2);flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding:1rem 0}
+    .nav-links.open{display:flex}
+    .nav-links li{padding:0}
+    .nav-links a{display:block;padding:0.9rem 5%;border-bottom:1px solid var(--border)}
+    .nav-toggle{display:block}
+  }
+</style>
 </head>
-<body class="antialiased text-gray-900">
+<body>
 
-    <nav class="fixed w-full z-50 glass-nav border-b border-gray-100 h-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative flex items-center justify-between">
-            
-            <div class="flex items-center z-10">
-                <a href="#">
-                    <img src="https://raw.githubusercontent.com/miko48/drony/refs/heads/main/VVYSOKO%20logotyp%20transparent.png" alt="VVYSOKO Logo" class="h-10 w-auto object-contain">
-                </a>
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/miko48/modele/refs/heads/main/modelemarka-logo.png" alt="Modele Marka - Logo">
+    <span>Marek Siadkowski</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#projekty">Projekty</a></li>
+    <li><a href="#about">O artyście</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+</nav>
+
+<section id="hero">
+  <div class="hero-image-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Portfolio</p>
+    <h1>Miniatury <em>Historyczne</em></h1>
+    <p class="hero-sub">Ręcznie składane i malowane modele oraz dioramy, tworzone z dbałością o każdy historyczny szczegół — od antyku po XXI wiek.</p>
+    <a href="#projekty" class="hero-cta"><span>Zobacz twórczość</span><span class="hero-cta-arrow">→</span></a>
+  </div>
+</section>
+
+<section id="projekty">
+  <div class="projects-header reveal">
+    <div>
+      <span class="section-tag">Galeria</span>
+      <h2>Wybrane <em>projekty</em></h2>
+      <div class="section-divider"></div>
+    </div>
+  </div>
+  <div class="projects-grid" id="projectsGrid"></div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="portrait-frame">
+        <img src="https://i.ibb.co/Mxgcj1CQ/Marek-foto-2025-muzeum-wystawa.jpg" alt="Marek Siadkowski">
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <div class="section-header" style="margin-bottom:2rem">
+        <span class="section-tag">O artyście</span>
+        <h2>Pasja do <em>historii</em></h2>
+        <div class="section-divider"></div>
+      </div>
+      <h3>Marek Siadkowski</h3>
+      <p class="about-subtitle">Modelarz miniaturowy · Kolekcjoner · Pasjonat historyk</p>
+      <p class="about-bio">Od ponad trzydziestu lat pasjonuję się historią wojskowości. Każda miniatura to dla mnie nie tylko model — to podróż w czasie, próba odtworzenia chwili, która odcisnęła piętno na losach świata.</p>
+      <p class="about-bio">Specjalizuję się w miniaturach z okresu napoleońskiego, II wojny światowej oraz średniowiecza. Każdy element pomalowany jest ręcznie, z dbałością o historyczną dokładność.</p>
+      <div class="about-stats">
+        <div><div class="stat-num">30 +</div><div class="stat-label">Lat doświadczenia</div></div>
+        <div><div class="stat-num">12.000 +</div><div class="stat-label">Ukończonych figurek i modeli</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="section-header">
+        <span class="section-tag">Kontakt</span>
+        <h2>Napisz do <em>mnie</em></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">
+              <a href="mailto:mrksiadkowski@gmail.com">mrksiadkowski@gmail.com</a>
             </div>
-
-            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 space-x-12 text-sm font-medium">
-                <a href="#services" class="hover:text-blue-600 transition">Usługi</a>
-                <a href="#process" class="hover:text-blue-600 transition">Proces</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Kontakt</a>
-            </div>
-
-            <div class="flex items-center z-10 gap-4">
-                <a href="#contact" class="hidden sm:block bg-black text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 transition">Wycena</a>
-                
-                <button class="md:hidden p-2" id="menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
+          </div>
         </div>
-
-        <div class="md:hidden hidden bg-white border-b border-gray-100 px-4 py-4 space-y-3" id="mobile-menu">
-            <a href="#services" class="block text-lg font-medium">Usługi</a>
-            <a href="#process" class="block text-lg font-medium">Proces</a>
-            <a href="#contact" class="block text-lg font-medium">Kontakt</a>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Lokalizacja</div>
+            <div class="contact-item-value">Brzozów, Polska · Dostępny na wystawy i pokazy</div>
+          </div>
         </div>
-    </nav>
-
-    <section class="hero-gradient h-screen flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-3xl">
-            <p class="uppercase tracking-widest text-xs md:text-sm mb-4 font-semibold opacity-90">Zacznij latać z nami</p>
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">Profesjonalne nagrania z drona.</h1>
-            <p class="text-lg md:text-xl mb-10 opacity-80 max-w-2xl mx-auto">Wysokiej jakości ujęcia z powietrza dla firm, nieruchomości i na wydarzenia. Filmowy efekt, szybka realizacja.</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold transition shadow-lg shadow-blue-500/30">Skontaktuj się z nami</a>
-                <a href="#services" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-lg font-bold border border-white/30 transition">Zobacz co robimy →</a>
-            </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Instagram</div>
+            <div class="contact-item-value"><a href="https://instagram.com/siadkowskimarek" target="_blank">@siadkowskimarek</a></div>
+          </div>
         </div>
-    </section>
-
-    <section id="services" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Ujęcia skrojone na miarę. Z lotu ptaka.</h2>
-            <p class="text-gray-500 text-lg max-w-xl">Od prezentacji nieruchomości po kampanie brandingowe – tworzymy materiały, które angażują.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-form">
+        <p class="contact-form-title">Wyślij wiadomość</p>
+        <div class="form-group">
+          <label>Imię i nazwisko</label>
+          <input type="text" id="cName" placeholder=" ">
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <a href="#contact" class="group cursor-pointer">
-                <div class="overflow-hidden rounded-2xl mb-4 h-64 bg-gray-200 shadow-xl">
-                    <img src="https://i.ibb.co/DgTL279X/26560c68-940a-4976-b165-5c6b34b16c07.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Nieruchomości">
-                </div>
-                <h3 class="text-xl font-bold mb-2">Nieruchomości</h3>
-                <p class="text-gray-600">Podnieś wartość ogłoszeń dzięki filmowym spacerom z lotu ptaka i panoramom 360°.</p>
-            </a>
-            
-            <a href="#contact" class="group cursor-pointer">
-                <div class="overflow-hidden rounded-2xl mb-4 h-64 bg-gray-200 shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Wydarzenia">
-                </div>
-                <h3 class="text-xl font-bold mb-2">Wydarzenia</h3>
-                <p class="text-gray-600">Uwiecznij niezapomniane chwile, wesela, koncerty i eventy sportowe z unikalnej perspektywy.</p>
-            </a>
-            
-            <a href="#contact" class="group cursor-pointer">
-                <div class="overflow-hidden rounded-2xl mb-4 h-64 bg-gray-200 shadow-xl">
-                    <img src="https://i.ibb.co/Jwk7GpXB/e46d8c7a-30ec-49e7-9e9b-b46dcc3ea75b.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Wideo Promocyjne">
-                </div>
-                <h3 class="text-xl font-bold mb-2">Wideo Promocyjne</h3>
-                <p class="text-gray-600">Wzmocnij swój branding dzięki dynamicznym ujęciom FPV i filmom korporacyjnym.</p>
-            </a>
+        <div class="form-group">
+          <label>Adres email</label>
+          <input type="email" id="cEmail" placeholder=" ">
         </div>
-    </section>
-
-    <section id="process" class="py-24 bg-gray-50 border-y border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Trzy kroki. Zero problemów.</h2>
-                <p class="text-gray-500">Uprościliśmy proces produkcji do minimum.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-12 text-center">
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="text-blue-600 text-5xl font-black mb-4 italic opacity-20">01</div>
-                    <h4 class="text-xl font-bold mb-2">Podziel się wizją</h4>
-                    <p class="text-gray-600">Wypełnij formularz, podając cele, lokalizację i preferowany termin realizacji.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="text-blue-600 text-5xl font-black mb-4 italic opacity-20">02</div>
-                    <h4 class="text-xl font-bold mb-2">Zaplanujmy lot</h4>
-                    <p class="text-gray-600">Przygotowujemy plan lotu, sprawdzamy strefy powietrzne i uzyskujemy zgody.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="text-blue-600 text-5xl font-black mb-4 italic opacity-20">03</div>
-                    <h4 class="text-xl font-bold mb-2">Odbierz materiał</h4>
-                    <p class="text-gray-600">Otrzymaj profesjonalnie zmontowane filmy w jakości 4K gotowe do publikacji.</p>
-                </div>
-            </div>
+        <div class="form-group">
+          <label>Wiadomość</label>
+          <textarea id="cMsg" placeholder="Napisz do mnie"></textarea>
         </div>
-    </section>
+        <button id="submitBtn" class="btn-primary" onclick="sendContact()">Wyślij wiadomość →</button>
+        <div class="msg-success" id="msgSuccess">✓ Dziękuję za wiadomość! Odpiszę najszybciej jak to możliwe.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
-        <div>
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Opowiedz nam o swoim projekcie.</h2>
-            <p class="text-gray-600 mb-8 text-lg">Drogi kliencie - do każdego zlecenia podchodzimy wyjątkowo. Odpowiemy Ci najszybciej jak tylko możemy, żeby ustalić szczegóły współpracy oraz indywidualną wycenę. To jak, lecimy?</p>
-            <ul class="space-y-4 text-sm font-medium">
-                <li class="flex items-center gap-3 text-gray-700">
-                    <span class="bg-green-100 text-green-600 p-1 rounded-full">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                    </span> 
-                    Certyfikaty Pilotów i Ubezpieczenia
-                </li>
-                <li class="flex items-center gap-3 text-gray-700">
-                    <span class="bg-green-100 text-green-600 p-1 rounded-full">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                    </span> 
-                    Jakość Kinowa 4K
-                </li>
-                <li class="flex items-center gap-3 text-gray-700">
-                    <span class="bg-green-100 text-green-600 p-1 rounded-full">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                    </span> 
-                    Realizacja nawet tego samego dnia
-                </li>
-            </ul>
-        </div>
-        <div class="bg-white p-8 rounded-3xl shadow-2xl border border-gray-50">
-            <form action="https://formspree.io/f/mojbadjl" method="POST" class="space-y-4">
-                <input type="hidden" name="_subject" value="Nowe zapytanie z Twojej strony VVYSOKO!">
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <input type="text" name="Imię" placeholder="Imię" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none border-transparent border transition focus:bg-white" required>
-                    <input type="text" name="Nazwisko" placeholder="Nazwisko" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none border-transparent border transition focus:bg-white" required>
-                </div>
-                <input type="email" name="email" placeholder="Adres e-mail" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none border-transparent border transition focus:bg-white" required>
-                <select name="Rodzaj_projektu" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none border-transparent border transition focus:bg-white text-gray-500" required>
-                    <option value="">Wybierz typ projektu</option>
-                    <option value="Nieruchomości">Nieruchomości</option>
-                    <option value="Eventy">Eventy</option>
-                    <option value="Inspekcje techniczne">Inspekcje techniczne</option>
-                    <option value="Wideo Promocyjne">Wideo Promocyjne</option>
-                    <option value="Inne">Inne</option>
-                </select>
-                <textarea name="Wiadomość" placeholder="Krótki opis Twoich potrzeb..." rows="4" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none border-transparent border transition focus:bg-white" required></textarea>
-                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition transform active:scale-[0.98]">Wyślij zapytanie</button>
-            </form>
-            </div>
-    </section>
+<footer>
+  <div>
+    <div class="footer-logo">Marek Siadkowski</div>
+    <div class="footer-copy" style="margin-top:0.4rem">© <script>document.write(new Date().getFullYear())</script> · Miniatury Historyczne · Wszelkie prawa zastrzeżone</div>
+  </div>
+  <a href="https://instagram.com/siadkowskimar" target="_blank" class="instagram-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    <span>@siadkowskimarek</span>
+  </a>
+</footer>
 
-    <footer class="py-12 border-t border-gray-100 bg-white">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="font-extrabold text-lg tracking-tighter mb-4 text-gray-400 uppercase">VVYSOKO</div>
-            <p class="text-gray-400 text-sm mb-6">© <script>document.write(new Date().getFullYear())</script> VVYSOKO. Wszystkie prawa zastrzeżone.</p>
-            <div class="flex justify-center space-x-6 text-gray-400 text-xs">
-                <a href="#" class="hover:text-blue-600">Polityka Prywatności</a>
-                <a href="#" class="hover:text-blue-600">Regulamin</a>
-                <a href="https://instagram.com/vvysoko" target="_blank" class="hover:text-blue-600" aria-label="Instagram"><i class="fab fa-instagram text-base"></i></a>
-                <a href="https://facebook.com/vvysoko" target="_blank" class="hover:text-blue-600" aria-label="Facebook"><i class="fab fa-facebook-f text-base"></i></a>
-                <a href="https://www.youtube.com/@VVYSOKO" target="_blank" class="hover:text-blue-600" aria-label="YouTube"><i class="fab fa-youtube text-base"></i></a>
-            </div>
-        </div>
-    </footer>
+<div class="lightbox" id="lightbox">
+  <div class="lb-header">
+    <div class="lb-title-group">
+      <span id="lbCategory"></span>
+      <h3 id="lbTitle"></h3>
+    </div>
+    <button class="lb-btn-close" onclick="closeLightbox()">✕</button>
+  </div>
+  <div class="lb-photos-grid" id="lbPhotosGrid"></div>
+  <div class="lb-desc"><p id="lbDesc"></p></div>
+</div>
 
-    <script>
-        // Prosta obsługa menu mobilnego
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
+<div class="zoom-overlay" id="zoomOverlay">
+  <button class="zoom-close" onclick="closeZoom()">✕</button>
+  <button class="zoom-nav prev" onclick="zoomNav(-1)">←</button>
+  <img class="zoom-img" id="zoomImg" src="" alt="">
+  <button class="zoom-nav next" onclick="zoomNav(1)">→</button>
+</div>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+<script>
+const projects = [
+  {
+    id: 1,
+    title: 'Husarze polscy — Wiedeń 1683',
+    category: 'XVII wiek',
+    desc: 'Kompania husarzy skrzydlatych w skali 1:72.',
+    cover: 'https://brzozowiana.pl/media/k2/items/cache/8ee32f4a7dc339e385d15d54d4e3744e_L.jpg',
+    photos: ['https://brzozowiana.pl/media/k2/items/cache/8ee32f4a7dc339e385d15d54d4e3744e_L.jpg', 'img/husarze/foto2.jpg']
+  },
+  {
+    id: 2,
+    title: 'Logo',
+    category: 'Epoka napoleońska',
+    desc: 'Pluton grenadierów Starej Gwardii w marszu. Skala 1:35.',
+    cover: 'img/grenadierzy/okladka.jpg',
+    photos: ['img/grenadierzy/foto1.jpg']
+  },
+  {
+    id: 3,
+    title: 'Abrams',
+    category: 'Współczesność',
+    desc: 'Czołg Abrams, US Army. Skala 1:35.',
+    cover: 'https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg',
+    photos: ['https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/M1_Abrams_noBG.jpg/1920px-M1_Abrams_noBG.jpg?utm_source=pl.wikipedia.org&utm_campaign=parser&utm_content=thumbnail']
+  },
+  {
+    id: 4,
+    title: 'Grenadierzy Gwardii',
+    category: 'Epoka napoleońska',
+    desc: 'Pluton grenadierów Starej Gwardii w marszu. Skala 1:35.',
+    cover: 'img/grenadierzy/okladka.jpg',
+    photos: ['img/grenadierzy/foto1.jpg']
+  },
+  {
+    id: 5,
+    title: 'Abrams',
+    category: 'Nowoczesność',
+    desc: 'Czołg Abrams, US Army. Skala 1:35.',
+    cover: 'https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg',
+    photos: ['https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/M1_Abrams_noBG.jpg/1920px-M1_Abrams_noBG.jpg?utm_source=pl.wikipedia.org&utm_campaign=parser&utm_content=thumbnail']
+  },
+  {
+    id: 6,
+    title: 'Grenadierzy Gwardii',
+    category: 'Epoka napoleońska',
+    desc: 'Pluton grenadierów Starej Gwardii w marszu. Skala 1:35.',
+    cover: 'img/grenadierzy/okladka.jpg',
+    photos: ['img/grenadierzy/foto1.jpg']
+  },
+  {
+    id: 7,
+    title: 'Abrams',
+    category: 'Nowoczesność',
+    desc: 'Czołg Abrams, US Army. Skala 1:35.',
+    cover: 'https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg',
+    photos: ['https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/M1_Abrams_noBG.jpg/1920px-M1_Abrams_noBG.jpg?utm_source=pl.wikipedia.org&utm_campaign=parser&utm_content=thumbnail']
+  }
+];
 
-        // Zamknij menu po kliknięciu w link (mobile)
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-    </script>
+let zoomPhotos = [];
+let zoomIndex = 0;
+
+function renderProjects(){
+  const grid = document.getElementById('projectsGrid');
+  grid.innerHTML = '';
+  projects.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.onclick = () => openLightbox(p.id);
+    card.innerHTML = `
+      <div class="project-thumb"><img src="${p.cover}" alt="${p.title}"></div>
+      <div class="project-info">
+        <div class="project-category">${p.category}</div>
+        <div class="project-title">${p.title}</div>
+        <div class="project-desc">${p.desc}</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function openLightbox(id){
+  const p = projects.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('lbTitle').textContent = p.title;
+  document.getElementById('lbCategory').textContent = p.category;
+  document.getElementById('lbDesc').textContent = p.desc;
+  
+  const grid = document.getElementById('lbPhotosGrid');
+  grid.innerHTML = '';
+  p.photos.forEach((src,i)=>{
+    const wrap = document.createElement('div');
+    wrap.className = 'lb-photo-wrap';
+    wrap.innerHTML = `<img src="${src}" alt="Zdjęcie ${i+1}">`;
+    wrap.querySelector('img').onclick = () => openZoom(p.photos, i);
+    grid.appendChild(wrap);
+  });
+  
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function openZoom(photos, idx){
+  zoomPhotos = photos;
+  zoomIndex = idx;
+  document.getElementById('zoomImg').src = photos[idx];
+  document.getElementById('zoomOverlay').classList.add('open');
+}
+function closeZoom(){ document.getElementById('zoomOverlay').classList.remove('open'); }
+function zoomNav(dir){
+  zoomIndex = (zoomIndex + dir + zoomPhotos.length) % zoomPhotos.length;
+  document.getElementById('zoomImg').src=zoomPhotos[zoomIndex];
+}
+
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ==========================================
+// INTEGRACJA FORMSPREE W TLE
+// ==========================================
+async function sendContact(){
+  const name = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const msg = document.getElementById('cMsg').value.trim();
+  
+  if(!name || !email || !msg){
+    alert('Proszę wypełnić wszystkie pola.');
+    return;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  const originalText = btn.textContent;
+  btn.textContent = 'Wysyłanie...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('https://formspree.io/f/xgoqvvvw', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        Imię: name,
+        Email: email,
+        Wiadomość: msg
+      })
+    });
+
+    if (response.ok) {
+      document.getElementById('msgSuccess').classList.add('show');
+      document.getElementById('cName').value='';
+      document.getElementById('cEmail').value='';
+      document.getElementById('cMsg').value='';
+      setTimeout(()=>document.getElementById('msgSuccess').classList.remove('show'),5000);
+    } else {
+      alert('Wystąpił błąd podczas wysyłania wiadomości.');
+    }
+  } catch (error) {
+    alert('Błąd połączenia. Spróbuj ponownie później.');
+  } finally {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ closeZoom(); closeLightbox(); }
+  if(document.getElementById('zoomOverlay').classList.contains('open')){
+    if(e.key==='ArrowRight') zoomNav(1);
+    if(e.key==='ArrowLeft') zoomNav(-1);
+  }
+});
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');observer.unobserve(en.target);}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+renderProjects();
+</script>
 </body>
 </html>
