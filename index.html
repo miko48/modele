@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio Modelarskie — Miniatury Historyczne</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/miko48/modele/refs/heads/main/modelemarka-logo.png">
-
 <meta property="og:title" content="Modele Marka — Miniatury Historyczne">
 <meta property="og:description" content="Ręcznie składane i malowane modele oraz dioramy, tworzone z dbałością o każdy historyczny szczegół — od antyku po XXI wiek.">
 <meta property="og:image" content="https://raw.githubusercontent.com/miko48/modele/refs/heads/main/modelemarka-logo.png">
@@ -17,61 +16,54 @@
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --bg: #121212;
-    --bg2: #1a1a1a;
-    --bg3: #242424;
-    --gold: #d4af37;
-    --gold-light: #f3e5ab;
-    --gold-dim: #998100;
-    --cream: #f4f4f5;
-    --cream-dim: #d4d4d8;
-    --text: #c7c7d1; 
-    --text-dim: #9a9aa6;
-    --border: #333333;
-    --border-gold: rgba(212, 175, 55, 0.15);
-    --font-head: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Raleway', sans-serif;
-    --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    --bg:#121212;--bg2:#1a1a1a;--bg3:#242424;
+    --gold:#d4af37;--gold-light:#f3e5ab;--gold-dim:#998100;
+    --cream:#f4f4f5;--cream-dim:#d4d4d8;
+    --text:#c7c7d1;--text-dim:#9a9aa6;
+    --border:#333333;--border-gold:rgba(212,175,55,0.15);
+    --font-head:'Cormorant Garamond',Georgia,serif;
+    --font-body:'Raleway',sans-serif;
+    --transition:0.35s cubic-bezier(0.4,0,0.2,1);
   }
   html{scroll-behavior:smooth;font-size:16px}
   body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-weight:300;line-height:1.7;overflow-x:hidden}
   ::selection{background:var(--gold-dim);color:#fff}
-
   ::-webkit-scrollbar{width:6px}
   ::-webkit-scrollbar-track{background:var(--bg)}
   ::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:3px}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;background:rgba(18, 18, 18, 0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;height:68px;transition:var(--transition)}
-  
-  /* Modyfikacja dla logo */
-  .nav-logo{font-family:var(--font-head);font-size:1.8rem;font-weight:400;color:var(--gold);letter-spacing:0.04em;text-decoration:none; display:flex; align-items:center; gap:12px;}
-  .nav-logo img{height:50px; width:auto;}
-  
-  .nav-links{display:flex;gap:2.2rem;list-style:none}
-  /* Powiększona czcionka na 1rem */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;background:rgba(18,18,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;height:68px;transition:var(--transition)}
+  .nav-logo{font-family:var(--font-head);font-size:1.8rem;font-weight:400;color:var(--gold);letter-spacing:0.04em;text-decoration:none;display:flex;align-items:center;gap:12px}
+  .nav-logo img{height:50px;width:auto}
+  .nav-links{display:flex;gap:2.2rem;list-style:none;margin-left:auto;margin-right:2rem}
   .nav-links a{text-decoration:none;color:var(--cream-dim);font-size:1rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:color var(--transition);position:relative}
   .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width var(--transition)}
   .nav-links a:hover{color:var(--gold)}
   .nav-links a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:1.2rem}
   .nav-toggle{display:none;background:none;border:none;color:var(--gold);font-size:1.4rem;cursor:pointer;padding:4px}
 
+  /* Language switcher */
+  .lang-switch{display:flex;align-items:center;gap:0;border:1px solid var(--border);overflow:hidden}
+  .lang-btn{background:none;border:none;font-family:var(--font-body);font-size:0.68rem;font-weight:600;letter-spacing:0.14em;color:var(--text-dim);cursor:pointer;padding:0.3rem 0.6rem;transition:all var(--transition);text-transform:uppercase}
+  .lang-btn.active{background:var(--gold);color:var(--bg)}
+  .lang-btn:not(.active):hover{color:var(--gold)}
+
   #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:0 5%;position:relative;overflow:hidden}
-  .hero-image-bg {position:absolute;inset:0;background-image:url('https://brzozowiana.pl/media/k2/items/cache/8ee32f4a7dc339e385d15d54d4e3744e_L.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;z-index:0}
-  .hero-overlay {position:absolute;inset:0;background:linear-gradient(to bottom, rgba(18,18,18,0.65) 0%, rgba(18,18,18,1) 100%);z-index:1}
+  .hero-image-bg{position:absolute;inset:0;background-image:url('https://brzozowiana.pl/media/k2/items/cache/8ee32f4a7dc339e385d15d54d4e3744e_L.jpg');background-size:cover;background-position:center;z-index:0}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(18,18,18,0.65) 0%,rgba(18,18,18,1) 100%);z-index:1}
   .hero-content{max-width:760px;text-align:center;position:relative;z-index:2;animation:fadeUp 1.2s cubic-bezier(0.4,0,0.2,1) both}
   .hero-eyebrow{font-size:0.72rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;display:flex;align-items:center;justify-content:center;gap:1rem}
   .hero-eyebrow::before,.hero-eyebrow::after{content:'';height:1px;width:48px;background:var(--gold-dim)}
   h1{font-family:var(--font-head);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.08;color:var(--cream);letter-spacing:-0.01em;margin-bottom:1.4rem}
   h1 em{font-style:italic;color:var(--gold-light)}
   .hero-sub{font-size:1rem;font-weight:300;color:var(--cream-dim);max-width:480px;margin:0 auto 2.8rem;line-height:1.8}
-  
-  .hero-cta{display:inline-flex;align-items:center;gap:0.7rem;padding:0.9rem 2.4rem;background:var(--gold);color:var(--bg);text-decoration:none;font-size:0.9rem;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;transition:all var(--transition);position:relative;box-shadow:0 4px 15px rgba(212, 175, 55, 0.3)}
-  .hero-cta:hover{background:var(--gold-light);color:var(--bg);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212, 175, 55, 0.5)}
-  .hero-cta span{position:relative;z-index:1}
-  .hero-cta-arrow{position:relative;z-index:1;transition:transform var(--transition)}
+  .hero-cta{display:inline-flex;align-items:center;gap:0.7rem;padding:0.9rem 2.4rem;background:var(--gold);color:var(--bg);text-decoration:none;font-size:0.9rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;transition:all var(--transition);box-shadow:0 4px 15px rgba(212,175,55,0.3)}
+  .hero-cta:hover{background:var(--gold-light);color:var(--bg);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,0.5)}
+  .hero-cta-arrow{transition:transform var(--transition)}
   .hero-cta:hover .hero-cta-arrow{transform:translateX(5px)}
 
-  section{padding:6rem 5%; position:relative; z-index:2}
+  section{padding:6rem 5%;position:relative;z-index:2}
   .section-header{margin-bottom:4rem}
   .section-tag{font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
   h2{font-family:var(--font-head);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;color:var(--cream);line-height:1.15}
@@ -93,8 +85,8 @@
 
   #about{background:var(--bg)}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-  .portrait-frame{aspect-ratio:3/4;width:100%;max-width:440px;margin:0 auto;background:var(--bg3);border:1px solid var(--border-gold);position:relative;overflow:hidden;}
-  .portrait-frame img{width:100%;height:100%;object-fit:cover;}
+  .portrait-frame{aspect-ratio:3/4;width:100%;max-width:440px;margin:0 auto;background:var(--bg3);border:1px solid rgba(212,175,55,0.35);box-shadow:inset 0 0 0 4px #1a1a1a,inset 0 0 0 5px rgba(212,175,55,0.18);position:relative;overflow:hidden}
+  .portrait-frame img{width:100%;height:100%;object-fit:cover}
   .about-text h3{font-family:var(--font-head);font-size:1.8rem;font-weight:400;color:var(--cream);margin-bottom:0.3rem}
   .about-subtitle{font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem}
   .about-bio{font-size:0.95rem;line-height:1.9;color:var(--text);margin-bottom:1.2rem}
@@ -121,7 +113,7 @@
   .form-group textarea{resize:vertical;min-height:90px}
   .btn-primary{background:var(--gold);border:none;color:var(--bg);font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.85rem 2rem;cursor:pointer;transition:background var(--transition);width:100%}
   .btn-primary:hover{background:var(--gold-light)}
-  .btn-primary:disabled{opacity: 0.7; cursor: not-allowed;}
+  .btn-primary:disabled{opacity:0.7;cursor:not-allowed}
   .msg-success{display:none;background:rgba(212,175,55,0.1);border:1px solid var(--border-gold);color:var(--gold-light);padding:1rem;font-size:0.83rem;margin-top:1rem;text-align:center}
   .msg-success.show{display:block}
 
@@ -134,7 +126,7 @@
 
   .lightbox{position:fixed;inset:0;z-index:200;background:rgba(18,18,18,0.97);display:none;flex-direction:column;overflow-y:auto}
   .lightbox.open{display:flex}
-  .lb-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5%;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(18,18,18,0.98);z-index:10;}
+  .lb-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5%;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(18,18,18,0.98);z-index:10}
   .lb-title-group h3{font-family:var(--font-head);font-size:1.5rem;font-weight:400;color:var(--cream)}
   .lb-title-group span{font-size:0.72rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase}
   .lb-btn-close{background:none;border:none;color:var(--text-dim);font-size:1.5rem;cursor:pointer;transition:color var(--transition)}
@@ -162,9 +154,9 @@
   .reveal.visible{opacity:1;transform:translateY(0)}
 
   @media(max-width:900px){
-    .about-grid, .contact-grid{grid-template-columns:1fr;gap:3rem}
-    .about-grid > div:first-child { order: 2; }
-    .portrait-frame{width:100%; max-width:320px; margin:0 auto}
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
+    .about-grid>div:first-child{order:2}
+    .portrait-frame{width:100%;max-width:320px;margin:0 auto}
     .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg2);flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding:1rem 0}
     .nav-links.open{display:flex}
     .nav-links li{padding:0}
@@ -181,29 +173,35 @@
     <span>Marek Siadkowski</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#projekty">Projekty</a></li>
-    <li><a href="#about">O artyście</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#projekty" data-i18n="nav-projects">Projekty</a></li>
+    <li><a href="#about" data-i18n="nav-about">O artyście</a></li>
+    <li><a href="#kontakt" data-i18n="nav-contact">Kontakt</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+  <div class="nav-right">
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btn-pl" onclick="setLang('pl')">PL</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+  </div>
 </nav>
 
 <section id="hero">
   <div class="hero-image-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Portfolio</p>
-    <h1>Miniatury <em>Historyczne</em></h1>
-    <p class="hero-sub">Ręcznie składane i malowane modele oraz dioramy, tworzone z dbałością o każdy historyczny szczegół — od antyku po XXI wiek.</p>
-    <a href="#projekty" class="hero-cta"><span>Zobacz twórczość</span><span class="hero-cta-arrow">→</span></a>
+    <p class="hero-eyebrow" data-i18n="hero-eyebrow">Portfolio</p>
+    <h1 data-i18n-html="hero-h1">Miniatury <em>Historyczne</em></h1>
+    <p class="hero-sub" data-i18n="hero-sub">Ręcznie składane i malowane modele oraz dioramy, tworzone z dbałością o każdy historyczny szczegół — od antyku po XXI wiek.</p>
+    <a href="#projekty" class="hero-cta"><span data-i18n="hero-cta">Zobacz twórczość</span><span class="hero-cta-arrow">→</span></a>
   </div>
 </section>
 
 <section id="projekty">
   <div class="projects-header reveal">
     <div>
-      <span class="section-tag">Galeria</span>
-      <h2>Wybrane <em>projekty</em></h2>
+      <span class="section-tag" data-i18n="gallery-tag">Galeria</span>
+      <h2 data-i18n-html="gallery-h2">Wybrane <em>projekty</em></h2>
       <div class="section-divider"></div>
     </div>
   </div>
@@ -219,17 +217,23 @@
     </div>
     <div class="about-text reveal">
       <div class="section-header" style="margin-bottom:2rem">
-        <span class="section-tag">O artyście</span>
-        <h2>Pasja do <em>historii</em></h2>
+        <span class="section-tag" data-i18n="about-tag">O artyście</span>
+        <h2 data-i18n-html="about-h2">Pasja do <em>historii</em></h2>
         <div class="section-divider"></div>
       </div>
-      <h3>Marek Siadkowski</h3>
-      <p class="about-subtitle">Modelarz miniaturowy · Kolekcjoner · Pasjonat historyk</p>
-      <p class="about-bio">Od ponad trzydziestu lat pasjonuję się historią wojskowości. Każda miniatura to dla mnie nie tylko model — to podróż w czasie, próba odtworzenia chwili, która odcisnęła piętno na losach świata.</p>
-      <p class="about-bio">Specjalizuję się w miniaturach z okresu napoleońskiego, II wojny światowej oraz średniowiecza. Każdy element pomalowany jest ręcznie, z dbałością o historyczną dokładność.</p>
+      <h3 data-i18n="about-name">Marek Siadkowski</h3>
+      <p class="about-subtitle" data-i18n="about-subtitle">Modelarz miniaturowy · Kolekcjoner · Pasjonat historyk</p>
+      <p class="about-bio" data-i18n="about-bio-1">Od ponad trzydziestu lat pasjonuję się historią wojskowości. Każda miniatura to dla mnie nie tylko model — to podróż w czasie, próba odtworzenia chwili, która odcisnęła piętno na losach świata.</p>
+      <p class="about-bio" data-i18n="about-bio-2">Specjalizuję się w miniaturach z okresu napoleońskiego, II wojny światowej oraz średniowiecza. Każdy element pomalowany jest ręcznie, z dbałością o historyczną dokładność.</p>
       <div class="about-stats">
-        <div><div class="stat-num" id="yearsExp"></div><div class="stat-label">Lat doświadczenia</div></div>
-        <div><div class="stat-num">12.000 +</div><div class="stat-label">Ukończonych figurek i modeli</div></div>
+        <div>
+          <div class="stat-num" id="yearsExp"></div>
+          <div class="stat-label" data-i18n="stat-years">Lat doświadczenia</div>
+        </div>
+        <div>
+          <div class="stat-num">12 000 +</div>
+          <div class="stat-label" data-i18n="stat-models">Ukończonych figurek i modeli</div>
+        </div>
       </div>
     </div>
   </div>
@@ -239,8 +243,8 @@
   <div class="contact-grid">
     <div class="reveal">
       <div class="section-header">
-        <span class="section-tag">Kontakt</span>
-        <h2>Napisz do <em>mnie</em></h2>
+        <span class="section-tag" data-i18n="contact-tag">Kontakt</span>
+        <h2 data-i18n-html="contact-h2">Napisz do <em>mnie</em></h2>
         <div class="section-divider"></div>
       </div>
       <div class="contact-info">
@@ -249,10 +253,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
           <div>
-            <div class="contact-item-label">Email</div>
-            <div class="contact-item-value">
-              <a href="mailto:mrksiadkowski@gmail.com">mrksiadkowski@gmail.com</a>
-            </div>
+            <div class="contact-item-label" data-i18n="contact-email-label">Email</div>
+            <div class="contact-item-value"><a href="mailto:mrksiadkowski@gmail.com">mrksiadkowski@gmail.com</a></div>
           </div>
         </div>
         <div class="contact-item">
@@ -260,8 +262,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
           <div>
-            <div class="contact-item-label">Lokalizacja</div>
-            <div class="contact-item-value">Brzozów, Polska · Dostępny na wystawy i pokazy</div>
+            <div class="contact-item-label" data-i18n="contact-location-label">Lokalizacja</div>
+            <div class="contact-item-value" data-i18n="contact-location-value">Brzozów, Polska · Dostępny na wystawy i pokazy</div>
           </div>
         </div>
         <div class="contact-item">
@@ -269,7 +271,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </div>
           <div>
-            <div class="contact-item-label">Instagram</div>
+            <div class="contact-item-label" data-i18n="contact-ig-label">Instagram</div>
             <div class="contact-item-value"><a href="https://instagram.com/siadkowskimarek" target="_blank">@siadkowskimarek</a></div>
           </div>
         </div>
@@ -277,21 +279,21 @@
     </div>
     <div class="reveal">
       <div class="contact-form">
-        <p class="contact-form-title">Wyślij wiadomość</p>
+        <p class="contact-form-title" data-i18n="form-title">Wyślij wiadomość</p>
         <div class="form-group">
-          <label>Imię i nazwisko</label>
+          <label data-i18n="form-label-name">Imię i nazwisko</label>
           <input type="text" id="cName" placeholder=" ">
         </div>
         <div class="form-group">
-          <label>Adres email</label>
+          <label data-i18n="form-label-email">Adres email</label>
           <input type="email" id="cEmail" placeholder=" ">
         </div>
         <div class="form-group">
-          <label>Wiadomość</label>
-          <textarea id="cMsg" placeholder="Napisz do mnie"></textarea>
+          <label data-i18n="form-label-msg">Wiadomość</label>
+          <textarea id="cMsg" data-i18n-placeholder="form-placeholder-msg" placeholder="Napisz do mnie"></textarea>
         </div>
-        <button id="submitBtn" class="btn-primary" onclick="sendContact()">Wyślij wiadomość →</button>
-        <div class="msg-success" id="msgSuccess">✓ Dziękuję za wiadomość! Odpiszę najszybciej jak to możliwe.</div>
+        <button id="submitBtn" class="btn-primary" onclick="sendContact()" data-i18n="form-btn">Wyślij wiadomość →</button>
+        <div class="msg-success" id="msgSuccess" data-i18n="form-success">✓ Dziękuję za wiadomość! Odpiszę najszybciej jak to możliwe.</div>
       </div>
     </div>
   </div>
@@ -300,9 +302,9 @@
 <footer>
   <div>
     <div class="footer-logo">Marek Siadkowski</div>
-    <div class="footer-copy" style="margin-top:0.4rem">© <script>document.write(new Date().getFullYear())</script> · Miniatury Historyczne · Wszelkie prawa zastrzeżone</div>
+    <div class="footer-copy" style="margin-top:0.4rem">© <span id="year"></span> · <span data-i18n="footer-site-name">Miniatury Historyczne</span> · <span data-i18n="footer-rights">Wszelkie prawa zastrzeżone</span></div>
   </div>
-  <a href="https://instagram.com/siadkowskimar" target="_blank" class="instagram-link">
+  <a href="https://instagram.com/siadkowskimarek" target="_blank" class="instagram-link">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
     <span>@siadkowskimarek</span>
   </a>
@@ -328,69 +330,187 @@
 </div>
 
 <script>
+// =====================
+// TŁUMACZENIA / TRANSLATIONS
+// =====================
+const translations = {
+  pl: {
+    'nav-projects':            'Projekty',
+    'nav-about':               'O artyście',
+    'nav-contact':             'Kontakt',
+    'hero-eyebrow':            'Portfolio',
+    'hero-h1':                 'Miniatury <em>Historyczne</em>',
+    'hero-sub':                'Ręcznie składane i malowane modele oraz dioramy, tworzone z dbałością o każdy historyczny szczegół — od antyku po XXI wiek.',
+    'hero-cta':                'Zobacz twórczość',
+    'gallery-tag':             'Galeria',
+    'gallery-h2':              'Wybrane <em>projekty</em>',
+    'about-tag':               'O artyście',
+    'about-h2':                'Pasja do <em>historii</em>',
+    'about-name':              'Marek Siadkowski',
+    'about-subtitle':          'Modelarz miniaturowy · Kolekcjoner · Pasjonat historyk',
+    'about-bio-1':             'Od ponad trzydziestu lat pasjonuję się historią wojskowości. Każda miniatura to dla mnie nie tylko model — to podróż w czasie, próba odtworzenia chwili, która odcisnęła piętno na losach świata.',
+    'about-bio-2':             'Specjalizuję się w miniaturach z okresu napoleońskiego, II wojny światowej oraz średniowiecza. Każdy element pomalowany jest ręcznie, z dbałością o historyczną dokładność.',
+    'stat-years':              'Lat doświadczenia',
+    'stat-models':             'Ukończonych figurek i modeli',
+    'contact-tag':             'Kontakt',
+    'contact-h2':              'Napisz do <em>mnie</em>',
+    'contact-email-label':     'Email',
+    'contact-location-label':  'Lokalizacja',
+    'contact-location-value':  'Brzozów, Polska · Dostępny na wystawy i pokazy',
+    'contact-ig-label':        'Instagram',
+    'form-title':              'Wyślij wiadomość',
+    'form-label-name':         'Imię i nazwisko',
+    'form-label-email':        'Adres email',
+    'form-label-msg':          'Wiadomość',
+    'form-placeholder-msg':    'Napisz do mnie',
+    'form-btn':                'Wyślij wiadomość →',
+    'form-success':            '✓ Dziękuję za wiadomość! Odpiszę najszybciej jak to możliwe.',
+    'footer-site-name':        'Miniatury Historyczne',
+    'footer-rights':           'Wszelkie prawa zastrzeżone',
+  },
+  en: {
+    'nav-projects':            'Projects',
+    'nav-about':               'About',
+    'nav-contact':             'Contact',
+    'hero-eyebrow':            'Portfolio',
+    'hero-h1':                 'Historical <em>Miniatures</em>',
+    'hero-sub':                'Hand-assembled and hand-painted models and dioramas, crafted with attention to every historical detail — from antiquity to the 21st century.',
+    'hero-cta':                'View work',
+    'gallery-tag':             'Gallery',
+    'gallery-h2':              'Selected <em>projects</em>',
+    'about-tag':               'About the artist',
+    'about-h2':                'Passion for <em>history</em>',
+    'about-name':              'Marek Siadkowski',
+    'about-subtitle':          'Miniature modeler · Collector · History enthusiast',
+    'about-bio-1':             'For over thirty years I have been passionate about military history. Every miniature is for me not just a model — it is a journey through time, an attempt to recreate a moment that left its mark on the fate of the world.',
+    'about-bio-2':             'I specialise in miniatures from the Napoleonic era, World War II and the Middle Ages. Every element is hand-painted with meticulous attention to historical accuracy.',
+    'stat-years':              'Years of experience',
+    'stat-models':             'Completed figures and models',
+    'contact-tag':             'Contact',
+    'contact-h2':              'Get in <em>touch</em>',
+    'contact-email-label':     'Email',
+    'contact-location-label':  'Location',
+    'contact-location-value':  'Brzozów, Poland · Available for exhibitions and shows',
+    'contact-ig-label':        'Instagram',
+    'form-title':              'Send a message',
+    'form-label-name':         'Full name',
+    'form-label-email':        'Email address',
+    'form-label-msg':          'Message',
+    'form-placeholder-msg':    'Write to me',
+    'form-btn':                'Send message →',
+    'form-success':            '✓ Thank you for your message! I will reply as soon as possible.',
+    'footer-site-name':        'Historical Miniatures',
+    'footer-rights':           'All rights reserved',
+  }
+};
+
+// =====================
+// PROJEKTY / PROJECTS
+// =====================
 const projects = [
   {
     id: 1,
-    title: 'Husarze polscy — Wiedeń 1683',
-    category: 'XVII wiek',
-    desc: 'Kompania husarzy skrzydlatych w skali 1:72.',
+    title:    { pl: 'Husarze polscy — Wiedeń 1683',           en: 'Polish Hussars — Vienna 1683' },
+    category: { pl: 'XVII wiek',                               en: '17th century' },
+    desc:     { pl: 'Kompania husarzy skrzydlatych w skali 1:72.', en: 'A company of winged hussars in 1:72 scale.' },
     cover: 'https://brzozowiana.pl/media/k2/items/cache/8ee32f4a7dc339e385d15d54d4e3744e_L.jpg',
-    photos: ['https://brzozowiana.pl/media/k2/items/cache/8ee32f4a7dc339e385d15d54d4e3744e_L.jpg', 'img/husarze/foto2.jpg']
+    photos: ['https://brzozowiana.pl/media/k2/items/cache/8ee32f4a7dc339e385d15d54d4e3744e_L.jpg','img/husarze/foto2.jpg']
   },
   {
     id: 2,
-    title: 'Logo',
-    category: 'Epoka napoleońska',
-    desc: 'Pluton grenadierów Starej Gwardii w marszu. Skala 1:35.',
+    title:    { pl: 'Grenadierzy Gwardii',                     en: 'Grenadiers of the Guard' },
+    category: { pl: 'Epoka napoleońska',                       en: 'Napoleonic era' },
+    desc:     { pl: 'Pluton grenadierów Starej Gwardii w marszu. Skala 1:35.', en: 'A platoon of Old Guard grenadiers on the march. Scale 1:35.' },
     cover: 'img/grenadierzy/okladka.jpg',
     photos: ['img/grenadierzy/foto1.jpg']
   },
   {
     id: 3,
-    title: 'Abrams',
-    category: 'Współczesność',
-    desc: 'Czołg Abrams, US Army. Skala 1:35.',
+    title:    { pl: 'Abrams M1A2',                             en: 'Abrams M1A2' },
+    category: { pl: 'Współczesność',                           en: 'Modern era' },
+    desc:     { pl: 'Czołg Abrams, US Army. Skala 1:35.',      en: 'M1A2 Abrams main battle tank, US Army. Scale 1:35.' },
     cover: 'https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg',
-    photos: ['https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/M1_Abrams_noBG.jpg/1920px-M1_Abrams_noBG.jpg?utm_source=pl.wikipedia.org&utm_campaign=parser&utm_content=thumbnail']
+    photos: ['https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/M1_Abrams_noBG.jpg/1920px-M1_Abrams_noBG.jpg']
   },
   {
     id: 4,
-    title: 'Grenadierzy Gwardii',
-    category: 'Epoka napoleońska',
-    desc: 'Pluton grenadierów Starej Gwardii w marszu. Skala 1:35.',
-    cover: 'img/grenadierzy/okladka.jpg',
-    photos: ['img/grenadierzy/foto1.jpg']
+    title:    { pl: 'Rycerze średniowieczni',                  en: 'Medieval Knights' },
+    category: { pl: 'Średniowiecze',                           en: 'Middle Ages' },
+    desc:     { pl: 'Oddział rycerzy w pełnej zbroi płytowej. Skala 1:72.', en: 'A unit of knights in full plate armour. Scale 1:72.' },
+    cover: 'img/rycerze/okladka.jpg',
+    photos: ['img/rycerze/foto1.jpg']
   },
   {
     id: 5,
-    title: 'Abrams',
-    category: 'Nowoczesność',
-    desc: 'Czołg Abrams, US Army. Skala 1:35.',
-    cover: 'https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg',
-    photos: ['https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/M1_Abrams_noBG.jpg/1920px-M1_Abrams_noBG.jpg?utm_source=pl.wikipedia.org&utm_campaign=parser&utm_content=thumbnail']
+    title:    { pl: 'Diorama — Normandia 1944',                en: 'Diorama — Normandy 1944' },
+    category: { pl: 'II Wojna Światowa',                       en: 'World War II' },
+    desc:     { pl: 'Scena lądowania aliantów na plaży Omaha. Skala 1:35.', en: 'Allied landing scene at Omaha Beach. Scale 1:35.' },
+    cover: 'img/normandia/okladka.jpg',
+    photos: ['img/normandia/foto1.jpg']
   },
   {
     id: 6,
-    title: 'Grenadierzy Gwardii',
-    category: 'Epoka napoleońska',
-    desc: 'Pluton grenadierów Starej Gwardii w marszu. Skala 1:35.',
-    cover: 'img/grenadierzy/okladka.jpg',
-    photos: ['img/grenadierzy/foto1.jpg']
+    title:    { pl: 'Legia Cudzoziemska',                      en: 'French Foreign Legion' },
+    category: { pl: 'XIX wiek',                                en: '19th century' },
+    desc:     { pl: 'Figurki legionistów podczas kampanii w Algierii. Skala 1:72.', en: 'Legionnaire figurines during the Algerian campaign. Scale 1:72.' },
+    cover: 'img/legia/okladka.jpg',
+    photos: ['img/legia/foto1.jpg']
   },
   {
     id: 7,
-    title: 'Abrams',
-    category: 'Nowoczesność',
-    desc: 'Czołg Abrams, US Army. Skala 1:35.',
-    cover: 'https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg',
-    photos: ['https://muzeum.brzozow.pl/wp-content/gallery/armie-swiata/DSC_6957.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/M1_Abrams_noBG.jpg/1920px-M1_Abrams_noBG.jpg?utm_source=pl.wikipedia.org&utm_campaign=parser&utm_content=thumbnail']
+    title:    { pl: 'Tiger I — Front Wschodni',                en: 'Tiger I — Eastern Front' },
+    category: { pl: 'II Wojna Światowa',                       en: 'World War II' },
+    desc:     { pl: 'Czołg Tiger I z zimowym kamuflażem. Skala 1:35.',     en: 'Tiger I tank with winter camouflage. Scale 1:35.' },
+    cover: 'img/tiger/okladka.jpg',
+    photos: ['img/tiger/foto1.jpg']
   }
 ];
 
+// =====================
+// AKTUALNY JĘZYK
+// =====================
+let currentLang = localStorage.getItem('lang') || 'pl';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang === 'pl' ? 'pl' : 'en';
+
+  // Przełącznik wizualny
+  document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  const t = translations[lang];
+
+  // Elementy tekstowe
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  // Elementy z HTML (em itp.)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Placeholdery
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  // Odśwież karty projektów
+  renderProjects();
+}
+
+// =====================
+// PROJEKTY
+// =====================
 let zoomPhotos = [];
 let zoomIndex = 0;
 
-function renderProjects(){
+function renderProjects() {
   const grid = document.getElementById('projectsGrid');
   grid.innerHTML = '';
   projects.forEach(p => {
@@ -398,124 +518,120 @@ function renderProjects(){
     card.className = 'project-card';
     card.onclick = () => openLightbox(p.id);
     card.innerHTML = `
-      <div class="project-thumb"><img src="${p.cover}" alt="${p.title}"></div>
+      <div class="project-thumb"><img src="${p.cover}" alt="${p.title[currentLang]}"></div>
       <div class="project-info">
-        <div class="project-category">${p.category}</div>
-        <div class="project-title">${p.title}</div>
-        <div class="project-desc">${p.desc}</div>
+        <div class="project-category">${p.category[currentLang]}</div>
+        <div class="project-title">${p.title[currentLang]}</div>
+        <div class="project-desc">${p.desc[currentLang]}</div>
       </div>`;
     grid.appendChild(card);
   });
 }
 
-function openLightbox(id){
-  const p = projects.find(x=>x.id===id);
-  if(!p) return;
-  document.getElementById('lbTitle').textContent = p.title;
-  document.getElementById('lbCategory').textContent = p.category;
-  document.getElementById('lbDesc').textContent = p.desc;
-  
+function openLightbox(id) {
+  const p = projects.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('lbTitle').textContent = p.title[currentLang];
+  document.getElementById('lbCategory').textContent = p.category[currentLang];
+  document.getElementById('lbDesc').textContent = p.desc[currentLang];
   const grid = document.getElementById('lbPhotosGrid');
   grid.innerHTML = '';
-  p.photos.forEach((src,i)=>{
+  p.photos.forEach((src, i) => {
     const wrap = document.createElement('div');
     wrap.className = 'lb-photo-wrap';
-    wrap.innerHTML = `<img src="${src}" alt="Zdjęcie ${i+1}">`;
+    wrap.innerHTML = `<img src="${src}" alt="Zdjęcie ${i + 1}">`;
     wrap.querySelector('img').onclick = () => openZoom(p.photos, i);
     grid.appendChild(wrap);
   });
-  
   document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
 }
 
-function closeLightbox(){
+function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow='';
+  document.body.style.overflow = '';
 }
 
-function openZoom(photos, idx){
+function openZoom(photos, idx) {
   zoomPhotos = photos;
   zoomIndex = idx;
   document.getElementById('zoomImg').src = photos[idx];
   document.getElementById('zoomOverlay').classList.add('open');
 }
-function closeZoom(){ document.getElementById('zoomOverlay').classList.remove('open'); }
-function zoomNav(dir){
+function closeZoom() { document.getElementById('zoomOverlay').classList.remove('open'); }
+function zoomNav(dir) {
   zoomIndex = (zoomIndex + dir + zoomPhotos.length) % zoomPhotos.length;
-  document.getElementById('zoomImg').src=zoomPhotos[zoomIndex];
+  document.getElementById('zoomImg').src = zoomPhotos[zoomIndex];
 }
 
-function toggleMenu(){
+function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// ==========================================
-// INTEGRACJA FORMSPREE W TLE
-// ==========================================
-async function sendContact(){
+// =====================
+// FORMULARZ
+// =====================
+async function sendContact() {
+  const t = translations[currentLang];
   const name = document.getElementById('cName').value.trim();
   const email = document.getElementById('cEmail').value.trim();
   const msg = document.getElementById('cMsg').value.trim();
-  
-  if(!name || !email || !msg){
-    alert('Proszę wypełnić wszystkie pola.');
+  if (!name || !email || !msg) {
+    alert(currentLang === 'pl' ? 'Proszę wypełnić wszystkie pola.' : 'Please fill in all fields.');
     return;
   }
-
   const btn = document.getElementById('submitBtn');
   const originalText = btn.textContent;
-  btn.textContent = 'Wysyłanie...';
+  btn.textContent = currentLang === 'pl' ? 'Wysyłanie...' : 'Sending...';
   btn.disabled = true;
-
   try {
     const response = await fetch('https://formspree.io/f/xgoqvvvw', {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        Imię: name,
-        Email: email,
-        Wiadomość: msg
-      })
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ Imię: name, Email: email, Wiadomość: msg })
     });
-
     if (response.ok) {
-      document.getElementById('msgSuccess').classList.add('show');
-      document.getElementById('cName').value='';
-      document.getElementById('cEmail').value='';
-      document.getElementById('cMsg').value='';
-      setTimeout(()=>document.getElementById('msgSuccess').classList.remove('show'),5000);
+      const successEl = document.getElementById('msgSuccess');
+      successEl.textContent = t['form-success'];
+      successEl.classList.add('show');
+      document.getElementById('cName').value = '';
+      document.getElementById('cEmail').value = '';
+      document.getElementById('cMsg').value = '';
+      setTimeout(() => successEl.classList.remove('show'), 5000);
     } else {
-      alert('Wystąpił błąd podczas wysyłania wiadomości.');
+      alert(currentLang === 'pl' ? 'Wystąpił błąd podczas wysyłania.' : 'An error occurred while sending.');
     }
-  } catch (error) {
-    alert('Błąd połączenia. Spróbuj ponownie później.');
+  } catch {
+    alert(currentLang === 'pl' ? 'Błąd połączenia. Spróbuj ponownie.' : 'Connection error. Please try again.');
   } finally {
     btn.textContent = originalText;
     btn.disabled = false;
   }
 }
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){ closeZoom(); closeLightbox(); }
-  if(document.getElementById('zoomOverlay').classList.contains('open')){
-    if(e.key==='ArrowRight') zoomNav(1);
-    if(e.key==='ArrowLeft') zoomNav(-1);
+// =====================
+// KLAWIATURA / SCROLL
+// =====================
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeZoom(); closeLightbox(); }
+  if (document.getElementById('zoomOverlay').classList.contains('open')) {
+    if (e.key === 'ArrowRight') zoomNav(1);
+    if (e.key === 'ArrowLeft') zoomNav(-1);
   }
 });
 
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');observer.unobserve(en.target);}});
-},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); observer.unobserve(en.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// Rok i doświadczenie
+document.getElementById('year').textContent = new Date().getFullYear();
 const startYear = 1993;
 document.getElementById('yearsExp').textContent = (new Date().getFullYear() - startYear) + ' +';
 
-renderProjects();
+// Inicjalizacja języka
+setLang(currentLang);
 </script>
 </body>
 </html>
