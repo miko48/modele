@@ -34,6 +34,7 @@
 
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;background:rgba(18,18,18,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;height:68px;transition:var(--transition)}
   .nav-logo{font-family:var(--font-head);font-size:1.8rem;font-weight:400;color:var(--gold);letter-spacing:0.04em;text-decoration:none;display:flex;align-items:center;gap:12px}
+  .nav-logo span {display: inline-block;line-height: 0.95;}
   .nav-logo img{height:50px;width:auto}
   .nav-links{display:flex;gap:2.2rem;list-style:none;margin-left:auto;margin-right:2rem}
   .nav-links a{text-decoration:none;color:var(--cream-dim);font-size:1rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:color var(--transition);position:relative}
@@ -154,10 +155,7 @@
   .reveal.visible{opacity:1;transform:translateY(0)}
 
   @media(max-width:900px){
-    .nav-logo {font-size: 1.2rem;line-height: 0.95;}
-    .nav-logo span {display: inline-block;line-height: 0.95;}
-    .nav-logo img {height: 40px;}
-
+    .nav-logo {font-size: 1.5rem}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
     .about-grid>div:first-child{order:2}
     .portrait-frame{width:100%;max-width:320px;margin:0 auto}
